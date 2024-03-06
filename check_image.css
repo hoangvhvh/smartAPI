@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Container */
+.container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#image-upload {
+    font-size: 15px;
+    border-radius: 8px;
+    color: rgb(87, 40, 40);
+}
+
+.upload-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color: #45a049;
+}
+
+#upload-button {
+    background-color: #008CBA;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#upload-button:hover {
+    background-color: #005f7f;
+}
+
+#message {
+    text-align: left;
+    justify-content: center;
+    margin-top: -50px;
+    font-size: 25px;
+    padding: 85px;
+    color: #333;
+}

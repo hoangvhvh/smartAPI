@@ -1,0 +1,51 @@
+.form-predict {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh; 
+    margin: 0; 
+    animation: shake 2s ease infinite;
+    color: rgba(3, 2, 2, 0.991);
+}
+@keyframes shake {
+    0% { transform: translateX(0); color: black; }
+    25% { transform: translateX(-5px); color: blue; }
+    50% { transform: translateX(5px); color: red; }
+    75% { transform: translateX(-5px); color: green; }
+    100% { transform: translateX(0); color: black; }
+}

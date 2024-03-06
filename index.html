@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>TRANG CUNG CAP DICH VU DOAN BANG MO HINH ANN (Nơ-ron trí tuệ nhận tạo)</title>
+</head>
+
+<body>
+    <form class="form-predict">
+        <label for="">Độ dài cánh hoa</label>
+        <input type="number" name="do_dai_canh_hoa" step="any" placeholder="" id="do_dai_canh_hoa"><br>
+        <label for="">Độ rộng cánh hoa</label>
+        <input type="number" name="do_rong_canh_hoa" step="any"  id="do_rong_canh_hoa"> <br>
+        <label for="">Độ dài đài hoa </label>
+        <input type="number" name="do_dai_dai_hoa" step="any"  id="do_dai_dai_hoa"> <br>
+        <label for="">Độ rộng đài hoa </label>
+        <input type="number" name="do_rong_dai_hoa" step="any" id="do_rong_dai_hoa"> <br>
+        <input type="submit" value="submit">
+    </form>
+    <h3 class="result"></h3>
+
+</body>
+
+<!-- From CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    let form = $('.form-predict').on('submit', (e) => {
+        e.preventDefault();
+        let do_dai_canh_hoa = parseFloat($('.form-predict input[name="do_dai_canh_hoa"]').val());
+        let do_rong_canh_hoa = parseFloat($('.form-predict input[name="do_rong_canh_hoa"]').val());
+        let do_dai_dai_hoa = parseFloat($('.form-predict input[name="do_dai_dai_hoa"]').val());
+        let do_rong_dai_hoa = parseFloat($('.form-predict input[name="do_rong_dai_hoa"]').val());
+        
+        if (!isNaN(do_dai_canh_hoa) && !isNaN(do_rong_canh_hoa) && !isNaN(do_dai_dai_hoa) && !isNaN(do_rong_dai_hoa)) {
+            let form_data = [do_dai_canh_hoa, do_rong_canh_hoa, do_dai_dai_hoa, do_rong_dai_hoa];
+            const data = { "features": form_data };
+
+            $.ajax({
+                'url': 'http://127.0.0.1:5000/predict',
+                'type': 'POST',
+                'dataType': "json",
+                'contentType': "application/json;charset=utf-8",
+                'data': JSON.stringify(data),
+                'success': function (data) {
+                    $('.result').text('Kết quả: ' + data.flower_name);
+                },
+                'error': function (request, error) {
+                    alert("Request: " + JSON.stringify(request));
+                }
+            });
+        } else {
+            alert("Vui lòng nhập số hợp lệ!");
+        }
+    });
+</script>
+
+</html>
